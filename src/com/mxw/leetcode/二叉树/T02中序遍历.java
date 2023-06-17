@@ -22,6 +22,17 @@ public class T02中序遍历 {
      * 前序位置的代码在刚刚进入一个二叉树节点的时候执行；
      * 后序位置的代码在将要离开一个二叉树节点的时候执行；
      * 中序位置的代码在一个二叉树节点左子树都遍历完，即将开始遍历右子树的时候执行。
+     *
+     * void traverse(TreeNode root) {
+     *     if (root == null) return;
+     *     printf("从节点 %s 进入节点 %s", root, root.left);
+     *     traverse(root.left);
+     *     printf("从节点 %s 回到节点 %s", root.left, root);
+     *
+     *     printf("从节点 %s 进入节点 %s", root, root.right);
+     *     traverse(root.right);
+     *     printf("从节点 %s 回到节点 %s", root.right, root);
+     * }
      */
 
     // 中序位置主要用在 BST 场景中，你完全可以把 BST 的中序遍历认为是遍历有序数组。
