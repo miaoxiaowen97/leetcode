@@ -41,7 +41,7 @@ public class A1twoSum重复子答案 {
     }
 
     public static void main(String[] args) {
-        List<List<Integer>> lists = twoSumTarget(new int[]{1, 3, 1, 2, 2, 3}, 4);
+        List<List<Integer>> lists = twoSumTarget(new int[]{1, 3, 1, 2, 2, 3,-1,5}, 4);
         System.out.println(lists.toString());
     }
 }

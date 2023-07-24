@@ -10,9 +10,9 @@ public class A3nSum {
      * 如果假设输入一个数组 nums 和一个目标和 target，请你返回 nums 中能够凑出 target 的两个元素的值，
      * 比如输入 nums = [1,3,5,6], target = 9，那么算法返回两个元素 [3,6]。可以假设只有且仅有一对儿元素可以凑出 target。
      */
-    public List<List<Integer>> nSumTarget(int[] nums, int n, int start, int target) {
-        int sz = nums.length;
+   static public List<List<Integer>> nSumTarget(int[] nums, int n, int start, int target) {
 
+        int sz = nums.length;
         List<List<Integer>> res = new ArrayList<>();
 
         // 至少是 2Sum，且数组大小不应该小于 n
@@ -36,7 +36,10 @@ public class A3nSum {
                         hi--;
                     }
                 } else {
-                    res.add(Arrays.asList(left, right));
+                    ArrayList<Integer> resTemp = new ArrayList<>();
+                    resTemp.add(left);
+                    resTemp.add(right);
+                    res.add(resTemp);
                     while (lo < hi && nums[lo] == left) {
                         lo++;
                     }
@@ -60,5 +63,12 @@ public class A3nSum {
             }
         }
         return res;
+    }
+
+    public static void main(String[] args) throws Exception {
+        int[] nums = {1, 3, 1, 2, 2, 3,6, -1, 5,-1};
+        Arrays.sort(nums);
+        List<List<Integer>> lists = nSumTarget(nums, 3, 0, 4);
+        System.out.println(lists.toString());
     }
 }
