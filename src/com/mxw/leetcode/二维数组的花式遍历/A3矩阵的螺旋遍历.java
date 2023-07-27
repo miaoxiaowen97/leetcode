@@ -20,47 +20,47 @@ public class A3矩阵的螺旋遍历 {
      * 输出：[1,2,3,6,9,8,7,4,5]
      */
 
-    List<Integer> spiralOrder(int[][] matrix) {
-        int m = matrix.length, n = matrix[0].length;
+    List<Integer> spiralOrder(int[][] nums) {
+        int line = nums.length, row = nums[0].length;
 
-        int upper_bound = 0, lower_bound = m - 1;
-        int left_bound = 0, right_bound = n - 1;
+        int top_bound = 0, bottom_bound = line - 1;
+        int left_bound = 0, right_bound = row - 1;
 
         List<Integer> res = new LinkedList<>();
         // res.size() == m * n 则遍历完整个数组
-        while (res.size() < m * n) {
+        while (res.size() < line * row) {
 
-            if (upper_bound <= lower_bound) {
+            if (top_bound <= bottom_bound) {
                 // 在顶部从左向右遍历
-                for (int j = left_bound; j <= right_bound; j++) {
-                    res.add(matrix[upper_bound][j]);
+                for (int i = left_bound; i <= right_bound; i++) {
+                    res.add(nums[top_bound][i]);
                 }
                 // 上边界下移
-                upper_bound++;
+                top_bound++;
             }
 
             if (left_bound <= right_bound) {
                 // 在右侧从上向下遍历
-                for (int i = upper_bound; i <= lower_bound; i++) {
-                    res.add(matrix[i][right_bound]);
+                for (int i = top_bound; i <= bottom_bound; i++) {
+                    res.add(nums[i][right_bound]);
                 }
                 // 右边界左移
                 right_bound--;
             }
 
-            if (upper_bound <= lower_bound) {
+            if (top_bound <= bottom_bound) {
                 // 在底部从右向左遍历
-                for (int j = right_bound; j >= left_bound; j--) {
-                    res.add(matrix[lower_bound][j]);
+                for (int i = right_bound; i >= left_bound; i--) {
+                    res.add(nums[bottom_bound][i]);
                 }
                 // 下边界上移
-                lower_bound--;
+                bottom_bound--;
             }
 
             if (left_bound <= right_bound) {
                 // 在左侧从下向上遍历
-                for (int i = lower_bound; i >= upper_bound; i--) {
-                    res.add(matrix[i][left_bound]);
+                for (int i = bottom_bound; i >= top_bound; i--) {
+                    res.add(nums[i][left_bound]);
                 }
                 // 左边界右移
                 left_bound++;
