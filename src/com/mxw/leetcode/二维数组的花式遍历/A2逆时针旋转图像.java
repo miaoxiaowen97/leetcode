@@ -20,18 +20,18 @@ public class A2逆时针旋转图像 {
 
      */
     // 将二维矩阵原地顺时针旋转 90 度
-    public void rotate(int[][] matrix) {
-        int n = matrix.length;
+    public void counterclockwiseRotate(int[][] nums) {
+        int n = nums.length;
         // 先沿对角线镜像对称二维矩阵
         for (int i = 0; i < n; i++) {
             for (int j = i; j < n; j++) {
-                int temp = matrix[i][j];
-                matrix[i][j] = matrix[j][i];
-                matrix[j][i] = temp;
+                int temp = nums[i][j];
+                nums[i][j] = nums[j][i];
+                nums[j][i] = temp;
             }
         }
         // 然后反转二维矩阵的每一行
-        for (int[] row : matrix) {
+        for (int[] row : nums) {
             reverse(row);
         }
     }
